@@ -1,26 +1,40 @@
 @import "tailwindcss";
 
+@theme {
+  /* Identidade: academia de força + luta há 25 anos — fundo quase preto,
+     texto quase branco, um único acento decisivo (vermelho, cor de
+     combate/urgência) em vez de paleta multicolor de app de fitness. */
+  --color-cdc-bg: #0b0b0d;
+  --color-cdc-surface: #151517;
+  --color-cdc-border: rgba(245, 244, 242, 0.1);
+  --color-cdc-text: #f5f4f2;
+  --color-cdc-muted: rgba(245, 244, 242, 0.58);
+  --color-cdc-accent: #d42e2e;
+  --color-cdc-accent-hover: #b52424;
+  --color-cdc-gold: #c9a227;
+
+  --font-display: var(--font-barlow-condensed), "Barlow Condensed", ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-barlow), "Barlow", ui-sans-serif, system-ui, sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #0b0b0d;
+  --foreground: #f5f4f2;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
