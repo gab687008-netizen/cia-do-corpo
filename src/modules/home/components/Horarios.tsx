@@ -1,3 +1,8 @@
+// CONFIRMAR: o projeto anterior tinha uma pendência aberta sobre uma
+// possível turma extra de Jiu-Jitsu em seg/qua/sex (professor não
+// confirmado) — aqui só entrou a turma de Ter/Qui, que é a que aparece
+// publicada no site atual da academia. Checar com a academia se a
+// turma seg/qua/sex existe de verdade antes do lançamento.
 const TURMAS = [
   { modalidade: 'Kickboxing', turma: 'Infantil', professor: 'Jefinho', dias: 'Seg · Qua · Sex', horario: '17h–18h' },
   { modalidade: 'Kickboxing', turma: 'Feminino', professor: 'Ludimila', dias: 'Ter · Qui', horario: '18h' },

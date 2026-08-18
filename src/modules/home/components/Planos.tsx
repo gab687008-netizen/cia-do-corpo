@@ -1,5 +1,8 @@
 import { linkWhatsApp } from '@/shared/lib/whatsapp'
 
+// CONFIRMAR: valores de referência (mesmos já usados no site antigo e no
+// repositório anterior, nenhum dos dois confirmado com a academia). Trocar
+// pelo valor real antes do lançamento oficial.
 const PLANOS = [
   {
     nome: 'Musculação',
