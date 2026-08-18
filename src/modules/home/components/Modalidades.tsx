@@ -2,9 +2,13 @@ const MODALIDADES = [
   {
     nome: 'Musculação',
     descricao: 'Treino de força com acompanhamento, do iniciante ao avançado. Equipamento completo pra hipertrofia, emagrecimento ou performance.',
-    // Foto quadrada, não retrato — encaixa muito melhor no recorte
-    // paisagem do card do que uma foto vertical (crop ficava descentralizado).
-    foto: '/cia-do-corpo/fotos/aluna-musculacao-1.jpeg',
+    // TROCAR: banco de imagem (Pexels) por foto real da sala de musculação —
+    // as fotos reais recebidas até agora (aluna flexionando, aluno na
+    // cadeira) não transmitiam "musculação" com clareza suficiente.
+    foto: 'https://images.pexels.com/photos/4720777/pexels-photo-4720777.jpeg?auto=compress&cs=tinysrgb&w=1400',
+    // Retrato (0.67) recortado em caixa paisagem — sem isso o rosto e a
+    // barra ficam fora do recorte, sobra só torso/pernas no centro.
+    posicao: '30% 15%',
   },
   {
     nome: 'Kickboxing',
@@ -33,8 +37,8 @@ export default function Modalidades() {
           {MODALIDADES.map((m) => (
             <div key={m.nome} className="group border border-cdc-border bg-cdc-surface overflow-hidden">
               <div
-                className="h-44 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                style={{ backgroundImage: `url('${m.foto}')` }}
+                className="h-44 bg-cover transition-transform duration-500 group-hover:scale-105"
+                style={{ backgroundImage: `url('${m.foto}')`, backgroundPosition: m.posicao ?? 'center' }}
                 role="img"
                 aria-label={m.nome}
               />
