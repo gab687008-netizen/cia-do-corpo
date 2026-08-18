@@ -2,7 +2,7 @@
 // só 2 das 5 já são fotos reais da academia (recebidas da equipe), as
 // outras seguem pendentes.
 const FOTOS = [
-  { url: '/cia-do-corpo/fotos/aluna-musculacao-1.jpeg', label: 'Aluna treinando na sala de musculação' },
+  { url: '/cia-do-corpo/fotos/aluno-musculacao.jpeg', label: 'Aluno treinando na sala de musculação' },
   { url: '/cia-do-corpo/fotos/aluna-musculacao-2.jpeg', label: 'Aluna na área de musculação' },
   { url: 'https://images.pexels.com/photos/16833338/pexels-photo-16833338.jpeg?auto=compress&cs=tinysrgb&w=800', label: 'Tatame de jiu-jitsu' },
   { url: 'https://images.pexels.com/photos/703012/pexels-photo-703012.jpeg?auto=compress&cs=tinysrgb&w=1200', label: 'Equipamentos de treino funcional' },

@@ -2,7 +2,9 @@ const MODALIDADES = [
   {
     nome: 'Musculação',
     descricao: 'Treino de força com acompanhamento, do iniciante ao avançado. Equipamento completo pra hipertrofia, emagrecimento ou performance.',
-    foto: '/cia-do-corpo/fotos/aluno-musculacao.jpeg',
+    // Foto quadrada, não retrato — encaixa muito melhor no recorte
+    // paisagem do card do que uma foto vertical (crop ficava descentralizado).
+    foto: '/cia-do-corpo/fotos/aluna-musculacao-1.jpeg',
   },
   {
     nome: 'Kickboxing',
