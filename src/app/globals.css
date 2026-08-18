@@ -1,25 +1,32 @@
 @import "tailwindcss";
 
 @theme {
-  /* Identidade: academia de força + luta há 25 anos — fundo quase preto,
-     texto quase branco, um único acento decisivo (vermelho, cor de
-     combate/urgência) em vez de paleta multicolor de app de fitness. */
-  --color-cdc-bg: #0b0b0d;
-  --color-cdc-surface: #151517;
-  --color-cdc-border: rgba(245, 244, 242, 0.1);
-  --color-cdc-text: #f5f4f2;
-  --color-cdc-muted: rgba(245, 244, 242, 0.58);
-  --color-cdc-accent: #d42e2e;
-  --color-cdc-accent-hover: #b52424;
-  --color-cdc-gold: #c9a227;
+  /* Identidade já estabelecida no projeto anterior da academia — preto +
+     dourado, não a paleta genérica de app de fitness usada na primeira
+     versão daqui. Valores extraídos direto do HTML anterior (:root),
+     não reinventados. */
+  --color-cdc-bg: #0a0a0b;
+  --color-cdc-surface: #131315;
+  --color-cdc-surface-2: #1a1a1d;
+  --color-cdc-border: #2a2a2e;
+  --color-cdc-border-strong: #3b3b41;
+  --color-cdc-text: #f2efe9;
+  --color-cdc-muted: #b0aca4;
+  --color-cdc-muted-2: #8a8780;
+  --color-cdc-accent: #e3a62f;
+  --color-cdc-accent-hover: #f0bb4c;
+  --color-cdc-accent-dim: #8c6820;
+  --color-cdc-jj: #c97878;
 
-  --font-display: var(--font-barlow-condensed), "Barlow Condensed", ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-barlow), "Barlow", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-anton), "Anton", ui-sans-serif, system-ui, sans-serif;
+  --font-label: var(--font-oswald), "Oswald", ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), "JetBrains Mono", ui-monospace, monospace;
 }
 
 :root {
-  --background: #0b0b0d;
-  --foreground: #f5f4f2;
+  --background: #0a0a0b;
+  --foreground: #f2efe9;
 }
 
 body {

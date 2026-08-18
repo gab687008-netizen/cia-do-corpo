@@ -10,8 +10,8 @@ export default function Professor() {
     <section id="professor" className="py-20 sm:py-28 px-5 border-b border-cdc-border bg-cdc-surface">
       <div className="max-w-6xl mx-auto grid md:grid-cols-[280px_1fr] gap-10 md:gap-16 items-start">
         <div>
-          <p className="font-display font-bold uppercase text-sm tracking-[0.25em] text-cdc-accent mb-3">Professor</p>
-          <h2 className="font-display font-black uppercase text-3xl sm:text-4xl leading-[0.95]">
+          <p className="font-mono uppercase text-xs tracking-[3px] text-cdc-accent mb-3">Professor</p>
+          <h2 className="font-display uppercase text-3xl sm:text-4xl leading-[0.95] tracking-tight">
             Anderson
             <br />
             Rodrigues

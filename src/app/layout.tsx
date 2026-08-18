@@ -1,18 +1,32 @@
 import type { Metadata } from "next";
-import { Barlow_Condensed, Barlow } from "next/font/google";
+import { Anton, Oswald, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const barlowCondensed = Barlow_Condensed({
-  variable: "--font-barlow-condensed",
+const anton = Anton({
+  variable: "--font-anton",
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800", "900"],
+  weight: "400",
   display: "swap",
 });
 
-const barlow = Barlow({
-  variable: "--font-barlow",
+const oswald = Oswald({
+  variable: "--font-oswald",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
   display: "swap",
 });
 
@@ -32,7 +46,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${barlowCondensed.variable} ${barlow.variable} antialiased`}>
+    <html
+      lang="pt-BR"
+      className={`${anton.variable} ${oswald.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}
+    >
       <body className="bg-cdc-bg text-cdc-text font-body min-h-screen">{children}</body>
     </html>
   );
