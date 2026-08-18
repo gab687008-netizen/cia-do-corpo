@@ -1,19 +1,19 @@
-// TROCAR: fotos de banco de imagem (Pexels) pelas fotos reais de cada
-// modalidade — mesmas pendências já marcadas no projeto anterior.
 const MODALIDADES = [
   {
     nome: 'Musculação',
     descricao: 'Treino de força com acompanhamento, do iniciante ao avançado. Equipamento completo pra hipertrofia, emagrecimento ou performance.',
-    foto: 'https://images.pexels.com/photos/4720777/pexels-photo-4720777.jpeg?auto=compress&cs=tinysrgb&w=1400',
+    foto: '/cia-do-corpo/fotos/aluno-musculacao.jpeg',
   },
   {
     nome: 'Kickboxing',
     descricao: 'Condicionamento físico e técnica de luta em pé. Queima calórica alta, defesa pessoal e disciplina em cada aula.',
-    foto: 'https://images.pexels.com/photos/5895866/pexels-photo-5895866.jpeg?auto=compress&cs=tinysrgb&w=800',
+    foto: '/cia-do-corpo/fotos/turma-kickboxing.jpeg',
   },
   {
     nome: 'Jiu-Jitsu',
     descricao: 'Luta agarrada, alavancas e técnica sobre força. Pra quem quer competir ou só aprender a se defender de verdade.',
+    // TROCAR: banco de imagem (Pexels) por foto real do tatame — ainda não
+    // recebemos foto de jiu-jitsu da academia, diferente das outras duas.
     foto: 'https://images.pexels.com/photos/16833338/pexels-photo-16833338.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
 ]

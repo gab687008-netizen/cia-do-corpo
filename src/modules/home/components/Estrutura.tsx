@@ -1,15 +1,12 @@
-// TROCAR: as 5 fotos abaixo (banco de imagem Pexels) pelas fotos reais
-// da academia — mesma pendência já marcada no projeto anterior.
+// TROCAR: as fotos marcadas com pexels.com abaixo são de banco de imagem —
+// só 2 das 5 já são fotos reais da academia (recebidas da equipe), as
+// outras seguem pendentes.
 const FOTOS = [
-  { url: 'https://images.pexels.com/photos/4720777/pexels-photo-4720777.jpeg?auto=compress&cs=tinysrgb&w=1200', label: 'Sala de musculação' },
+  { url: '/cia-do-corpo/fotos/aluna-musculacao-1.jpeg', label: 'Aluna treinando na sala de musculação' },
+  { url: '/cia-do-corpo/fotos/aluna-musculacao-2.jpeg', label: 'Aluna na área de musculação' },
   { url: 'https://images.pexels.com/photos/16833338/pexels-photo-16833338.jpeg?auto=compress&cs=tinysrgb&w=800', label: 'Tatame de jiu-jitsu' },
-  { url: 'https://images.pexels.com/photos/5895866/pexels-photo-5895866.jpeg?auto=compress&cs=tinysrgb&w=800', label: 'Área de kickboxing com sacos de pancada' },
   { url: 'https://images.pexels.com/photos/703012/pexels-photo-703012.jpeg?auto=compress&cs=tinysrgb&w=1200', label: 'Equipamentos de treino funcional' },
-  {
-    url: 'https://images.pexels.com/photos/4720777/pexels-photo-4720777.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    label: 'Área de pesos livres',
-    posicao: '70% 40%',
-  },
+  { url: 'https://images.pexels.com/photos/4720777/pexels-photo-4720777.jpeg?auto=compress&cs=tinysrgb&w=1200', label: 'Área de pesos livres' },
 ]
 
 export default function Estrutura() {
@@ -25,12 +22,15 @@ export default function Estrutura() {
           diferentes — a Cia do Corpo tem espaço pra cada modalidade.
         </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-          {FOTOS.map((foto, i) => (
+        {/* Grid uniforme (sem célula com tamanho diferente das outras) —
+            evita o "buraco" que aparecia quando uma foto tentava ocupar
+            2 linhas sem as vizinhas terem a mesma altura total. */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
+          {FOTOS.map((foto) => (
             <div
-              key={i}
-              className={`h-48 sm:h-56 bg-cover bg-center border border-cdc-border ${i === 0 ? 'col-span-2 row-span-2 h-full min-h-[240px]' : ''}`}
-              style={{ backgroundImage: `url('${foto.url}')`, backgroundPosition: foto.posicao }}
+              key={foto.url}
+              className="aspect-[4/5] bg-cover bg-center border border-cdc-border"
+              style={{ backgroundImage: `url('${foto.url}')` }}
               role="img"
               aria-label={foto.label}
             />
