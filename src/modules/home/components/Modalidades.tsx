@@ -2,13 +2,10 @@ const MODALIDADES = [
   {
     nome: 'Musculação',
     descricao: 'Treino de força com acompanhamento, do iniciante ao avançado. Equipamento completo pra hipertrofia, emagrecimento ou performance.',
-    // TROCAR: banco de imagem (Pexels) por foto real da sala de musculação —
-    // as fotos reais recebidas até agora (aluna flexionando, aluno na
-    // cadeira) não transmitiam "musculação" com clareza suficiente.
-    foto: 'https://images.pexels.com/photos/4720777/pexels-photo-4720777.jpeg?auto=compress&cs=tinysrgb&w=1400',
-    // Retrato (0.67) recortado em caixa paisagem — sem isso o rosto e a
-    // barra ficam fora do recorte, sobra só torso/pernas no centro.
-    posicao: '30% 15%',
+    // Foto de banco de imagem — as fotos reais recebidas até agora
+    // (aluna flexionando, aluno na cadeira) não transmitiam
+    // "musculação" com clareza suficiente.
+    foto: '/cia-do-corpo/fotos/musculacao-banco.webp',
   },
   {
     nome: 'Kickboxing',
@@ -37,8 +34,8 @@ export default function Modalidades() {
           {MODALIDADES.map((m) => (
             <div key={m.nome} className="group border border-cdc-border bg-cdc-surface overflow-hidden">
               <div
-                className="h-44 bg-cover transition-transform duration-500 group-hover:scale-105"
-                style={{ backgroundImage: `url('${m.foto}')`, backgroundPosition: m.posicao ?? 'center' }}
+                className="h-44 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                style={{ backgroundImage: `url('${m.foto}')` }}
                 role="img"
                 aria-label={m.nome}
               />
