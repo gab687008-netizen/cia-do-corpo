@@ -31,17 +31,17 @@ function mensagemPlano(nome: string): string {
 export default function Planos() {
   return (
     <section id="planos" className="py-20 sm:py-28 px-5 border-b border-cdc-border bg-cdc-surface">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto flex flex-col items-center text-center">
         <p className="font-mono uppercase text-xs tracking-[3px] text-cdc-accent mb-3">Planos</p>
         <h2 className="font-display uppercase text-3xl sm:text-4xl max-w-lg mb-14 tracking-tight">
           Comece sem enrolação
         </h2>
 
-        <div className="grid sm:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-3 gap-5 w-full">
           {PLANOS.map((plano) => (
             <div
               key={plano.nome}
-              className={`flex flex-col p-7 border ${
+              className={`flex flex-col items-center text-center p-7 border ${
                 plano.destaque ? 'border-cdc-accent bg-cdc-bg relative' : 'border-cdc-border bg-cdc-bg'
               }`}
             >
@@ -55,7 +55,7 @@ export default function Planos() {
                 <span className="font-display text-4xl">R${plano.preco}</span>
                 <span className="font-body text-sm text-cdc-muted">/mês</span>
               </p>
-              <ul className="flex flex-col gap-2.5 mb-8 flex-1">
+              <ul className="flex flex-col gap-2.5 mb-8 flex-1 w-full text-left">
                 {plano.itens.map((item) => (
                   <li key={item} className="flex items-start gap-2.5">
                     <svg width="16" height="16" viewBox="0 0 20 20" fill="none" className="flex-none mt-0.5 text-cdc-accent" aria-hidden="true">
@@ -69,7 +69,7 @@ export default function Planos() {
                 href={linkWhatsApp(mensagemPlano(plano.nome))}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`text-center font-label font-semibold uppercase text-sm tracking-wide px-5 py-3.5 transition-colors ${
+                className={`text-center w-full font-label font-semibold uppercase text-sm tracking-wide px-5 py-3.5 transition-colors ${
                   plano.destaque
                     ? 'bg-cdc-accent hover:bg-cdc-accent-hover text-cdc-bg'
                     : 'border border-cdc-border hover:border-cdc-accent hover:text-cdc-accent text-cdc-text'

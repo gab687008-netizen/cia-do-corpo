@@ -1,19 +1,19 @@
 'use client'
 
 import { useState } from 'react'
-import { linkWhatsApp } from '@/shared/lib/whatsapp'
+import { useQuiz } from '@/shared/lib/quiz-provider'
 
 const LINKS = [
   { href: '#modalidades', label: 'Modalidades' },
-  { href: '#professor', label: 'Professor' },
   { href: '#horarios', label: 'Horários' },
   { href: '#planos', label: 'Planos' },
-  { href: '#estrutura', label: 'Estrutura' },
+  { href: '#avaliacoes', label: 'Avaliações' },
   { href: '#contato', label: 'Contato' },
 ]
 
 export default function Header() {
   const [menuAberto, setMenuAberto] = useState(false)
+  const { abrir } = useQuiz()
 
   return (
     <header className="sticky top-0 z-50 bg-cdc-bg/95 backdrop-blur border-b border-cdc-border">
@@ -36,14 +36,13 @@ export default function Header() {
         </nav>
 
         <div className="hidden lg:block">
-          <a
-            href={linkWhatsApp()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-cdc-accent hover:bg-cdc-accent-hover transition-colors text-cdc-bg font-label font-semibold uppercase tracking-wide text-sm px-5 py-2.5"
+          <button
+            type="button"
+            onClick={abrir}
+            className="bg-cdc-accent hover:bg-cdc-accent-hover transition-colors text-cdc-bg font-label font-semibold uppercase tracking-wide text-sm px-5 py-2.5 cursor-pointer"
           >
             Aula grátis
-          </a>
+          </button>
         </div>
 
         <button
@@ -71,14 +70,16 @@ export default function Header() {
               {link.label}
             </a>
           ))}
-          <a
-            href={linkWhatsApp()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-cdc-accent text-cdc-bg font-label font-semibold uppercase tracking-wide text-sm px-5 py-3 text-center mt-1"
+          <button
+            type="button"
+            onClick={() => {
+              setMenuAberto(false)
+              abrir()
+            }}
+            className="bg-cdc-accent text-cdc-bg font-label font-semibold uppercase tracking-wide text-sm px-5 py-3 text-center mt-1 cursor-pointer"
           >
             Aula grátis
-          </a>
+          </button>
         </nav>
       )}
     </header>

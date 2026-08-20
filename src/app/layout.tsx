@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Anton, Oswald, Inter, JetBrains_Mono } from "next/font/google";
+import { QuizProvider } from "@/shared/lib/quiz-provider";
+import QuizModal from "@/shared/components/QuizModal";
+import WhatsAppFloatButton from "@/shared/components/WhatsAppFloatButton";
 import "./globals.css";
 
 const anton = Anton({
@@ -50,7 +53,13 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${anton.variable} ${oswald.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}
     >
-      <body className="bg-cdc-bg text-cdc-text font-body min-h-screen">{children}</body>
+      <body className="bg-cdc-bg text-cdc-text font-body min-h-screen">
+        <QuizProvider>
+          {children}
+          <QuizModal />
+          <WhatsAppFloatButton />
+        </QuizProvider>
+      </body>
     </html>
   );
 }

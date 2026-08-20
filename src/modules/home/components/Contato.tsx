@@ -7,14 +7,14 @@ const MAPA_SRC =
 export default function Contato() {
   return (
     <section id="contato" className="py-20 sm:py-28 px-5">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto flex flex-col items-center text-center">
         <p className="font-mono uppercase text-xs tracking-[3px] text-cdc-accent mb-3">Contato</p>
         <h2 className="font-display uppercase text-3xl sm:text-4xl max-w-lg mb-14 tracking-tight">
           Vem treinar com a gente
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="flex flex-col gap-6">
+        <div className="grid md:grid-cols-2 gap-8 w-full text-left">
+          <div className="flex flex-col gap-6 items-center md:items-start text-center md:text-left">
             <div>
               <p className="font-body font-semibold text-[11px] uppercase tracking-wide text-cdc-muted mb-1.5">Endereço</p>
               <p className="font-body text-base">{ENDERECO}</p>
@@ -26,7 +26,7 @@ export default function Contato() {
               <p className="font-body text-base">Sábado, 8h às 12h</p>
             </div>
 
-            <div className="flex flex-wrap gap-3 mt-2">
+            <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-2">
               <a
                 href={linkWhatsApp()}
                 target="_blank"
@@ -42,14 +42,14 @@ export default function Contato() {
                 href="https://www.instagram.com/ciadocorpoacademiafitness/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 border border-cdc-border hover:border-cdc-accent hover:text-cdc-accent transition-colors font-label font-semibold uppercase text-sm tracking-wide px-6 py-3.5"
+                className="flex items-center gap-2.5 rounded-full border border-cdc-border-strong bg-cdc-surface-2 hover:border-cdc-accent transition-colors font-label font-semibold uppercase text-sm tracking-wide px-6 py-3.5"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <rect x="3" y="3" width="18" height="18" rx="4.5" stroke="currentColor" strokeWidth="1.8" />
                   <circle cx="12" cy="12" r="4.2" stroke="currentColor" strokeWidth="1.8" />
                   <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" />
                 </svg>
-                Instagram
+                @ciadocorpoacademiafitness
               </a>
             </div>
           </div>
