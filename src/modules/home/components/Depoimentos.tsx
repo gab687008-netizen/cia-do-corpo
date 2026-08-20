@@ -53,7 +53,7 @@ const AVALIACOES: Avaliacao[] = [
 
 function CardAvaliacao({ nome, tempo, texto }: Avaliacao) {
   return (
-    <div className="snap-start flex-none w-[270px] sm:w-[320px] border border-cdc-border bg-cdc-bg p-6 flex flex-col gap-4 text-left">
+    <div className="snap-start flex-none w-[270px] sm:w-[320px] border border-cdc-border bg-cdc-surface p-6 flex flex-col gap-4 text-left">
       <div className="flex items-center gap-3">
         <span
           className="w-11 h-11 rounded-full bg-cdc-accent-dim text-cdc-accent font-display text-base flex items-center justify-center flex-none"
@@ -80,7 +80,7 @@ function CardAvaliacao({ nome, tempo, texto }: Avaliacao) {
 
 export default function Depoimentos() {
   return (
-    <section id="avaliacoes" className="py-20 sm:py-28 px-5 border-b border-cdc-border bg-cdc-surface">
+    <section id="avaliacoes" className="py-20 sm:py-28 px-5 border-b border-cdc-border">
       <div className="max-w-6xl mx-auto flex flex-col items-center text-center">
         <p className="font-mono uppercase text-xs tracking-[3px] text-cdc-accent mb-3">Avaliações</p>
         <h2 className="font-display uppercase text-3xl sm:text-4xl max-w-lg mb-6 tracking-tight">
@@ -105,7 +105,7 @@ export default function Depoimentos() {
           href={LINK_GOOGLE}
           target="_blank"
           rel="noopener noreferrer"
-          className="border border-cdc-border hover:border-cdc-accent hover:text-cdc-accent transition-colors font-label font-semibold uppercase tracking-wide text-sm px-7 py-4 mt-10"
+          className="border border-cdc-border hover:border-cdc-accent hover:text-cdc-accent hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 font-label font-semibold uppercase tracking-wide text-sm px-7 py-4 mt-10"
         >
           Ver todas as avaliações no Google
         </a>

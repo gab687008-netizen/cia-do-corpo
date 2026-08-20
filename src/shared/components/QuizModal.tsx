@@ -78,7 +78,7 @@ export default function QuizModal() {
                   key={opcao}
                   type="button"
                   onClick={() => escolher(opcao)}
-                  className="text-left font-label font-medium text-sm px-4 py-3 border border-cdc-border hover:border-cdc-accent hover:text-cdc-accent transition-colors cursor-pointer"
+                  className="text-left font-label font-medium text-sm px-4 py-3 border border-cdc-border hover:border-cdc-accent hover:text-cdc-accent hover:translate-x-1 transition-all duration-150 cursor-pointer"
                 >
                   {opcao}
                 </button>
@@ -106,7 +106,7 @@ export default function QuizModal() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={reiniciarEFechar}
-              className="block text-center bg-cdc-accent hover:bg-cdc-accent-hover transition-colors text-cdc-bg font-label font-semibold uppercase tracking-wide text-sm px-6 py-3.5"
+              className="block text-center bg-cdc-accent hover:bg-cdc-accent-hover hover:scale-[1.03] active:scale-[0.98] hover:shadow-lg hover:shadow-cdc-accent/25 transition-all duration-200 text-cdc-bg font-label font-semibold uppercase tracking-wide text-sm px-6 py-3.5"
             >
               Chamar no WhatsApp
             </a>

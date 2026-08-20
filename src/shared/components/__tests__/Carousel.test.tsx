@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import Carousel from '@/shared/components/Carousel'
 
 describe('Carousel', () => {
-  it('renderiza os itens filhos e os botões de navegação', () => {
+  it('renderiza os itens (triplicados, pra rolagem infinita) sem seta de navegação', () => {
     render(
       <Carousel>
         <div>Item 1</div>
@@ -11,19 +11,8 @@ describe('Carousel', () => {
       </Carousel>,
     )
 
-    expect(screen.getByText('Item 1')).toBeTruthy()
-    expect(screen.getByText('Item 2')).toBeTruthy()
-    expect(screen.getByRole('button', { name: 'Anterior' })).toBeTruthy()
-    expect(screen.getByRole('button', { name: 'Próximo' })).toBeTruthy()
-  })
-
-  it('começa com a seta "Anterior" desabilitada', () => {
-    render(
-      <Carousel>
-        <div>Item 1</div>
-      </Carousel>,
-    )
-    const botao = screen.getByRole('button', { name: 'Anterior' }) as HTMLButtonElement
-    expect(botao.disabled).toBe(true)
+    expect(screen.getAllByText('Item 1').length).toBe(3)
+    expect(screen.getAllByText('Item 2').length).toBe(3)
+    expect(screen.queryByRole('button')).toBeNull()
   })
 })

@@ -39,7 +39,7 @@ export default function Header() {
           <button
             type="button"
             onClick={abrir}
-            className="bg-cdc-accent hover:bg-cdc-accent-hover transition-colors text-cdc-bg font-label font-semibold uppercase tracking-wide text-sm px-5 py-2.5 cursor-pointer"
+            className="bg-cdc-accent hover:bg-cdc-accent-hover hover:scale-[1.05] active:scale-[0.97] hover:shadow-lg hover:shadow-cdc-accent/25 transition-all duration-200 text-cdc-bg font-label font-semibold uppercase tracking-wide text-sm px-5 py-2.5 cursor-pointer"
           >
             Aula grátis
           </button>
@@ -76,7 +76,7 @@ export default function Header() {
               setMenuAberto(false)
               abrir()
             }}
-            className="bg-cdc-accent text-cdc-bg font-label font-semibold uppercase tracking-wide text-sm px-5 py-3 text-center mt-1 cursor-pointer"
+            className="bg-cdc-accent hover:bg-cdc-accent-hover active:scale-[0.98] transition-all duration-150 text-cdc-bg font-label font-semibold uppercase tracking-wide text-sm px-5 py-3 text-center mt-1 cursor-pointer"
           >
             Aula grátis
           </button>

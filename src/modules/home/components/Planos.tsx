@@ -30,7 +30,7 @@ function mensagemPlano(nome: string): string {
 
 export default function Planos() {
   return (
-    <section id="planos" className="py-20 sm:py-28 px-5 border-b border-cdc-border bg-cdc-surface">
+    <section id="planos" className="py-20 sm:py-28 px-5 border-b border-cdc-border">
       <div className="max-w-6xl mx-auto flex flex-col items-center text-center">
         <p className="font-mono uppercase text-xs tracking-[3px] text-cdc-accent mb-3">Planos</p>
         <h2 className="font-display uppercase text-3xl sm:text-4xl max-w-lg mb-14 tracking-tight">
@@ -42,7 +42,7 @@ export default function Planos() {
             <div
               key={plano.nome}
               className={`flex flex-col items-center text-center p-7 border ${
-                plano.destaque ? 'border-cdc-accent bg-cdc-bg relative' : 'border-cdc-border bg-cdc-bg'
+                plano.destaque ? 'border-cdc-accent bg-cdc-surface relative' : 'border-cdc-border bg-cdc-surface'
               }`}
             >
               {plano.destaque && (
@@ -69,9 +69,9 @@ export default function Planos() {
                 href={linkWhatsApp(mensagemPlano(plano.nome))}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`text-center w-full font-label font-semibold uppercase text-sm tracking-wide px-5 py-3.5 transition-colors ${
+                className={`text-center w-full font-label font-semibold uppercase text-sm tracking-wide px-5 py-3.5 hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 ${
                   plano.destaque
-                    ? 'bg-cdc-accent hover:bg-cdc-accent-hover text-cdc-bg'
+                    ? 'bg-cdc-accent hover:bg-cdc-accent-hover hover:shadow-lg hover:shadow-cdc-accent/25 text-cdc-bg'
                     : 'border border-cdc-border hover:border-cdc-accent hover:text-cdc-accent text-cdc-text'
                 }`}
               >

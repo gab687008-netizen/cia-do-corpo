@@ -12,7 +12,7 @@ export default function Horarios() {
           Musculação é horário livre. Kickboxing e jiu-jitsu têm turma fixa: escolha a sua.
         </p>
 
-        <div className="border border-cdc-border bg-cdc-surface p-5 sm:p-6 mb-6 w-full max-w-xl text-left">
+        <div className="border border-cdc-border bg-cdc-surface p-5 sm:p-6 mb-6 w-full max-w-xl text-center">
           <p className="font-label font-semibold uppercase text-sm tracking-wide mb-1">Musculação</p>
           <p className="font-body text-sm text-cdc-muted">
             Horário livre: segunda a sexta, 6h às 22h · sábado, 8h às 12h

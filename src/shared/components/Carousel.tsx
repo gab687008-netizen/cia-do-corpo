@@ -1,63 +1,84 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { Children, cloneElement, isValidElement, useEffect, useRef } from 'react'
 
+const COPIAS = 3
+
+// Carrossel sem seta: a pessoa arrasta (touch nativo no mobile, ponteiro
+// no desktop) e nunca chega ao fim de verdade — os itens são triplicados
+// e, sempre que o scroll se aproxima de uma ponta, pula sem transição pro
+// mesmo ponto da cópia do meio, criando a sensação de rolagem infinita.
+//
+// Recebe `children` (não uma função de render) de propósito: o chamador
+// normalmente é um Server Component, e passar uma função pra um Client
+// Component quebra o build (função não é serializável através dessa
+// fronteira) — JSX já renderizado, sim.
 export default function Carousel({ children }: { children: React.ReactNode }) {
   const trackRef = useRef<HTMLDivElement>(null)
-  const [podeVoltar, setPodeVoltar] = useState(false)
-  const [podeAvancar, setPodeAvancar] = useState(true)
-
-  function atualizarSetas() {
-    const el = trackRef.current
-    if (!el) return
-    setPodeVoltar(el.scrollLeft > 4)
-    setPodeAvancar(el.scrollLeft < el.scrollWidth - el.clientWidth - 4)
-  }
+  const arrastando = useRef(false)
+  const inicioX = useRef(0)
+  const inicioScroll = useRef(0)
+  const moveu = useRef(false)
 
   useEffect(() => {
-    atualizarSetas()
-  }, [])
-
-  function mover(direcao: 1 | -1) {
     const el = trackRef.current
     if (!el) return
-    el.scrollBy({ left: direcao * el.clientWidth * 0.85, behavior: 'smooth' })
+    el.scrollLeft = el.scrollWidth / COPIAS
+  }, [])
+
+  function corrigirLoop() {
+    const el = trackRef.current
+    if (!el) return
+    const umTerco = el.scrollWidth / COPIAS
+    if (el.scrollLeft < umTerco * 0.5) el.scrollLeft += umTerco
+    else if (el.scrollLeft > umTerco * 1.5) el.scrollLeft -= umTerco
   }
 
-  return (
-    <div className="w-full">
-      <div
-        ref={trackRef}
-        onScroll={atualizarSetas}
-        className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-      >
-        {children}
-      </div>
+  function aoPressionar(e: React.PointerEvent<HTMLDivElement>) {
+    const el = trackRef.current
+    if (!el || e.pointerType === 'touch') return
+    arrastando.current = true
+    moveu.current = false
+    inicioX.current = e.clientX
+    inicioScroll.current = el.scrollLeft
+    el.setPointerCapture(e.pointerId)
+  }
 
-      <div className="flex justify-center gap-3 mt-6">
-        <button
-          type="button"
-          aria-label="Anterior"
-          onClick={() => mover(-1)}
-          disabled={!podeVoltar}
-          className="w-10 h-10 border border-cdc-border hover:border-cdc-accent disabled:opacity-30 disabled:pointer-events-none transition-colors flex items-center justify-center cursor-pointer"
-        >
-          <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <path d="M12.5 4L6 10l6.5 6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </button>
-        <button
-          type="button"
-          aria-label="Próximo"
-          onClick={() => mover(1)}
-          disabled={!podeAvancar}
-          className="w-10 h-10 border border-cdc-border hover:border-cdc-accent disabled:opacity-30 disabled:pointer-events-none transition-colors flex items-center justify-center cursor-pointer"
-        >
-          <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <path d="M7.5 4L14 10l-6.5 6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </button>
-      </div>
+  function aoMover(e: React.PointerEvent<HTMLDivElement>) {
+    const el = trackRef.current
+    if (!arrastando.current || !el) return
+    const delta = e.clientX - inicioX.current
+    if (Math.abs(delta) > 4) moveu.current = true
+    el.scrollLeft = inicioScroll.current - delta
+  }
+
+  function aoSoltar() {
+    arrastando.current = false
+  }
+
+  function aoClicarCapturando(e: React.MouseEvent<HTMLDivElement>) {
+    if (moveu.current) {
+      e.preventDefault()
+      e.stopPropagation()
+    }
+  }
+
+  const itens = Children.toArray(children)
+
+  return (
+    <div
+      ref={trackRef}
+      onScroll={corrigirLoop}
+      onPointerDown={aoPressionar}
+      onPointerMove={aoMover}
+      onPointerUp={aoSoltar}
+      onPointerLeave={aoSoltar}
+      onClickCapture={aoClicarCapturando}
+      className="w-full flex gap-4 overflow-x-auto snap-x snap-mandatory cursor-grab active:cursor-grabbing select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+    >
+      {Array.from({ length: COPIAS }).flatMap((_, copia) =>
+        itens.map((item, i) => (isValidElement(item) ? cloneElement(item, { key: `${copia}-${i}` }) : item)),
+      )}
     </div>
   )
 }

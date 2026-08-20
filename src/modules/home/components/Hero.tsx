@@ -38,13 +38,13 @@ export default function Hero() {
           <button
             type="button"
             onClick={abrir}
-            className="bg-cdc-accent hover:bg-cdc-accent-hover transition-colors text-cdc-bg font-label font-semibold uppercase tracking-wide text-sm px-7 py-4 cursor-pointer"
+            className="bg-cdc-accent hover:bg-cdc-accent-hover hover:scale-[1.05] active:scale-[0.97] hover:shadow-lg hover:shadow-cdc-accent/25 transition-all duration-200 text-cdc-bg font-label font-semibold uppercase tracking-wide text-sm px-7 py-4 cursor-pointer"
           >
             Agendar aula grátis
           </button>
           <a
             href="#planos"
-            className="border border-cdc-text/25 hover:border-cdc-accent hover:text-cdc-accent transition-colors font-label font-semibold uppercase tracking-wide text-sm px-7 py-4"
+            className="border border-cdc-text/25 hover:border-cdc-accent hover:text-cdc-accent hover:scale-[1.05] active:scale-[0.97] transition-all duration-200 font-label font-semibold uppercase tracking-wide text-sm px-7 py-4"
           >
             Ver planos
           </a>
