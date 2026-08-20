@@ -1,6 +1,6 @@
 import { linkWhatsApp } from '@/shared/lib/whatsapp'
 
-const ENDERECO = 'Av. Paraná, 941 — Sidil, Divinópolis/MG'
+const ENDERECO = 'Av. Paraná, 941, Sidil, Divinópolis/MG'
 const MAPA_SRC =
   'https://www.google.com/maps?q=' + encodeURIComponent('Av. Paraná, 941, Sidil, Divinópolis - MG') + '&output=embed'
 
@@ -14,7 +14,7 @@ export default function Contato() {
         </h2>
 
         <div className="grid md:grid-cols-2 gap-8 w-full text-left">
-          <div className="flex flex-col gap-6 items-center md:items-start text-center md:text-left">
+          <div className="flex flex-col gap-6 items-center text-center">
             <div>
               <p className="font-body font-semibold text-[11px] uppercase tracking-wide text-cdc-muted mb-1.5">Endereço</p>
               <p className="font-body text-base">{ENDERECO}</p>
@@ -26,7 +26,7 @@ export default function Contato() {
               <p className="font-body text-base">Sábado, 8h às 12h</p>
             </div>
 
-            <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-2">
+            <div className="flex flex-wrap justify-center gap-3 mt-2">
               <a
                 href={linkWhatsApp()}
                 target="_blank"

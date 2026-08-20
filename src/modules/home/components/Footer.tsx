@@ -12,7 +12,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="font-body text-xs text-cdc-muted hover:text-cdc-accent transition-colors"
           >
-            Desenvolvido por Brota Web
+            Brota Web
           </a>
         </div>
       </div>

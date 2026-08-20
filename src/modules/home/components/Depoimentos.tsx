@@ -24,7 +24,7 @@ export default function Depoimentos() {
         </div>
 
         <p className="font-body text-sm text-cdc-muted max-w-md mb-8">
-          Avaliações reais de alunos no Google — confira o perfil completo da academia.
+          Avaliações reais de alunos no Google. Confira o perfil completo da academia.
         </p>
 
         <a

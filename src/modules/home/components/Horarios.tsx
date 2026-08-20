@@ -9,31 +9,41 @@ export default function Horarios() {
           Encaixa na sua rotina
         </h2>
         <p className="font-body text-sm text-cdc-muted mb-10 max-w-md">
-          Musculação é horário livre. Kickboxing e jiu-jitsu têm turma fixa — escolha a sua.
+          Musculação é horário livre. Kickboxing e jiu-jitsu têm turma fixa: escolha a sua.
         </p>
 
         <div className="border border-cdc-border bg-cdc-surface p-5 sm:p-6 mb-6 w-full max-w-xl text-left">
           <p className="font-label font-semibold uppercase text-sm tracking-wide mb-1">Musculação</p>
           <p className="font-body text-sm text-cdc-muted">
-            Horário livre — segunda a sexta, 6h às 22h · sábado, 8h às 12h
+            Horário livre: segunda a sexta, 6h às 22h · sábado, 8h às 12h
           </p>
         </div>
 
-        {/* Mobile: cards empilhados (9 turmas numa tabela larga exige
-            rolagem horizontal cansativa nessa quantidade de linhas). */}
-        <div className="sm:hidden w-full flex flex-col gap-3 text-left">
-          {TURMAS.map((t, i) => (
-            <div key={i} className="border border-cdc-border bg-cdc-surface p-4">
-              <p
-                className={`font-display uppercase text-lg tracking-tight mb-1 ${t.modalidade === 'Jiu-Jitsu' ? 'text-cdc-jj' : 'text-cdc-text'}`}
-              >
-                {t.modalidade} · {t.turma}
-              </p>
-              <p className="font-body text-sm text-cdc-muted">{t.professor}</p>
-              <p className="font-body text-sm text-cdc-muted">{t.dias}</p>
-              <p className="font-body font-semibold text-sm text-cdc-accent mt-1">{t.horario}</p>
-            </div>
-          ))}
+        {/* Mobile: grade compacta de 2 colunas (9 turmas numa tabela larga
+            exige rolagem horizontal cansativa, e uma lista empilhada de
+            cards grandes fica longa demais pra rolar). Turma ímpar de
+            sobra centraliza sozinha em vez de grudar na coluna esquerda. */}
+        <div className="sm:hidden w-full grid grid-cols-2 gap-2.5">
+          {TURMAS.map((t, i) => {
+            const orfaoSolto = i === TURMAS.length - 1 && TURMAS.length % 2 === 1
+            return (
+              <div key={i} className={orfaoSolto ? 'col-span-2 flex justify-center' : ''}>
+                <div
+                  className={`border border-cdc-border bg-cdc-surface px-3 py-3.5 flex flex-col items-center text-center gap-0.5 ${orfaoSolto ? 'w-[calc(50%-0.3125rem)]' : 'w-full'}`}
+                >
+                  <p
+                    className={`font-body font-semibold text-[10px] uppercase tracking-wide ${t.modalidade === 'Jiu-Jitsu' ? 'text-cdc-jj' : 'text-cdc-muted'}`}
+                  >
+                    {t.modalidade}
+                  </p>
+                  <p className="font-display text-base uppercase tracking-tight">{t.turma}</p>
+                  <p className="font-body text-xs text-cdc-muted">{t.professor}</p>
+                  <p className="font-body text-[11px] text-cdc-muted">{t.dias}</p>
+                  <p className="font-display text-lg text-cdc-accent mt-1">{t.horario}</p>
+                </div>
+              </div>
+            )
+          })}
         </div>
 
         {/* Desktop/tablet: tabela completa. */}

@@ -16,7 +16,7 @@ export default function AbaMusculacao() {
         <h3 className="font-display uppercase text-2xl mb-3 tracking-tight">Musculação</h3>
         <p className="font-body text-base text-cdc-muted leading-relaxed">
           Treino de força com acompanhamento, do iniciante ao avançado. Equipamento completo pra
-          hipertrofia, emagrecimento ou performance. Horário livre, sem turma fixa — você treina no
+          hipertrofia, emagrecimento ou performance. Horário livre, sem turma fixa: você treina no
           seu tempo.
         </p>
       </div>

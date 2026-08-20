@@ -36,7 +36,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://ciadocorpo.com.br"),
   title: {
-    default: "Cia do Corpo — Musculação, Kickboxing e Jiu-Jitsu em Divinópolis",
+    default: "Cia do Corpo | Musculação, Kickboxing e Jiu-Jitsu em Divinópolis",
     template: "%s · Cia do Corpo",
   },
   description:

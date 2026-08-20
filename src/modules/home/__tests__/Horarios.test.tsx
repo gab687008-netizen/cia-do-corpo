@@ -6,7 +6,7 @@ import { TURMAS } from '@/modules/home/data/turmas'
 describe('Horarios', () => {
   it('mostra a musculação como horário livre', () => {
     render(<Horarios />)
-    expect(screen.getAllByText(/horário livre — segunda a sexta, 6h às 22h/i).length).toBeGreaterThan(0)
+    expect(screen.getAllByText(/horário livre: segunda a sexta, 6h às 22h/i).length).toBeGreaterThan(0)
   })
 
   it('lista todas as turmas do quadro de horários, com professor e horário', () => {
